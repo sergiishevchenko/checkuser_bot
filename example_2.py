@@ -5,6 +5,7 @@ TELEGRAM_HTTP_API_TOKEN = 'your_token'
 
 FIRST, SECOND = range(2)
 
+
 def start(bot, update):
     keyboard = [
         [InlineKeyboardButton(u"Next", callback_data=str(FIRST))]
@@ -15,6 +16,7 @@ def start(bot, update):
         reply_markup=reply_markup
     )
     return FIRST
+
 
 def first(bot, update):
     query = update.callback_query
@@ -37,6 +39,7 @@ def first(bot, update):
     )
     return SECOND
 
+
 def second(bot, update):
     query = update.callback_query
     bot.edit_message_text(
@@ -45,6 +48,7 @@ def second(bot, update):
         text=u"Second CallbackQueryHandler"
     )
     return
+
 
 updater = Updater(TELEGRAM_HTTP_API_TOKEN)
 
